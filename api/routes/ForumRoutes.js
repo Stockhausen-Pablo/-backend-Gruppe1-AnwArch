@@ -3,6 +3,7 @@ module.exports = (app)=> {
   const users = require('../controllers/UsersController');
   const categories = require('../controllers/CategoriesController');
   const topics = require('../controllers/TopicsController');
+  const posts = require('../controllers/PostsController');
 
   //Users
   app.post("/users", users.create);
@@ -30,7 +31,7 @@ module.exports = (app)=> {
 
   app.delete("/categories", categories.deleteAll);
 
-  //Categories
+  //Topics
   app.post("/topics", topics.create);
 
   app.get("/topics", topics.findAll);
@@ -42,5 +43,18 @@ module.exports = (app)=> {
   app.delete("/topics/:topicId", topics.delete);
 
   app.delete("/topics", topic.deleteAll);
+
+  //Posts
+  app.post("/posts", posts.create);
+
+  app.get("/posts", posts.findAll);
+
+  app.get("/posts/:postId", posts.findOne);
+
+  app.put("/posts/:postId", posts.update);
+
+  app.delete("/posts/:postId", posts.delete);
+
+  app.delete("/posts", post.deleteAll);
 
 };
