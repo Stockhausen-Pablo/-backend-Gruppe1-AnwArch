@@ -52,7 +52,7 @@ Category.getAll = result => {
 
 Category.updateById = (id, category, result) => {
     sql.query(
-        "UPDATE user SET cat_name = ?, cat_description = ? WHERE cat_id = ?",
+        "UPDATE category SET cat_name = ?, cat_description = ? WHERE cat_id = ?",
         [category.cat_name,category.cat_description],
         (err, res) => {
             if (err) {
