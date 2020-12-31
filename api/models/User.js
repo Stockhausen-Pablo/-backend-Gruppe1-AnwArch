@@ -2,11 +2,11 @@ const sql = require("./users_db.js");
 
 // constructor
 const User  = function(user) {
-  this.name = user.user_name;
-  this.pass = user.user_pass;
-  this.email = user.user_email;
-  this.date = user.user_date;
-  this.level = user.user_level;
+  this.user_name = user.name;
+  this.user_pass = user.pass;
+  this.user_email = user.email;
+  this.user_date = user.date;
+  this.user_level = user.level;
 };
 
 User.create = (newUser, result) => {

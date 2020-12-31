@@ -2,10 +2,10 @@ const sql = require("./posts_db.js");
 
 // constructor
 const Post = function(post) {
-    this.post_content = post.post_content;
-    this.post_date = post.post_date;
-    this.post_topic = post.post_topic;
-    this.post_by = post.post_by;
+    this.post_content = post.content;
+    this.post_date = post.date;
+    this.post_topic = post.topic;
+    this.post_by = post.by;
 };
 
 Post.create = (newPost, result) => {

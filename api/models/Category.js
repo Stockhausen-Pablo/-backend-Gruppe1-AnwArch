@@ -2,8 +2,8 @@ const sql = require("./categories_db.js");
 
 // constructor
 const Category  = function(category) {
-    this.cat_name = category.cat_name;
-    this.cat_description = category.cat_description;
+    this.cat_name = category.name;
+    this.cat_description = category.description;
 };
 
 Category.create = (newCategory, result) => {

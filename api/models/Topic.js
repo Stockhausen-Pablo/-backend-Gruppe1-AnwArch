@@ -2,10 +2,10 @@ const sql = require("./topics_db.js");
 
 // constructor
 const Topic = function(topic) {
-  this.topic_subject = topic.topic_subject;
-  this.topic_date = topic.topic_date;
-  this.topic_cat = topic.topic_cat;
-  this.topic_by = topic.topic_by;
+  this.topic_subject = topic.subject;
+  this.topic_date = topic.date;
+  this.topic_cat = topic.category;
+  this.topic_by = topic.by;
 };
 
 Topic.create = (newTopic, result) => {
