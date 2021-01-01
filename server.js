@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const port = 8080;
 
 const app = express();
@@ -12,6 +13,8 @@ console.log('Starting Server on: ' + port + ' ...');
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 
 const codingEnv = app.get('env');
 
