@@ -7,6 +7,8 @@ const User  = function(user) {
   this.user_email = user.email;
   this.user_date = user.date;
   this.user_level = user.level;
+  this.user_role = user.role;
+  this.user_permission = user.permission;
 };
 
 User.create = (newUser, result) => {
@@ -103,6 +105,26 @@ User.removeAll = result => {
 
     console.log(`deleted ${res.affectedRows} users`);
     result(null, res);
+  });
+};
+
+User.authenticate = (user,hash_pw, result) => {
+  sql.query("SELECT * FROM users WHERE user_name = ? AND user_pass = ?",
+      [user.user_name,hash_pw],
+      (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log("found user: ", res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    result({ kind: "not_found" }, null);
   });
 };
 

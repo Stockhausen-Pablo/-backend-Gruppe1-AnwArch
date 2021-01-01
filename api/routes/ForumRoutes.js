@@ -18,6 +18,8 @@ module.exports = (app)=> {
 
   app.delete("/api/v1/users", users.deleteAll);
 
+  app.post("/api/v1/users/authenticate", users.authenticate);
+
   //Categories
   app.post("/api/v1/categories", categories.create);
 

@@ -1,4 +1,5 @@
 const User = require("../models/User.js");
+const md5 = require('md5');
 
 exports.create = (req, res) => {
   if (!req.body) {
@@ -12,7 +13,9 @@ exports.create = (req, res) => {
     pass: req.body.user_pass,
     email: req.body.user_email,
     date: req.body.user_date,
-    level: req.body.user_level
+    level: req.body.user_level,
+    role: req.body.user_role,
+    permission: req.body.user_permission
   });
 
   User.create(user, (err, data) => {
@@ -24,6 +27,30 @@ exports.create = (req, res) => {
     else res.send(data);
   });  
 };
+
+exports.authenticate = (req, res) => {
+  if (!req.body) {
+    res.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  const user = new User({
+    name: req.body.user_name,
+    pass: req.body.user_pass
+  });
+
+  let hash_pw = md5(user.user_pass);
+
+  User.authenticate(user,hash_pw, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+            err.message || "Some error occurred while authenticating the User."
+      });
+    else res.send(data);
+  });
+}
 
 exports.findAll = (req, res) => {
   User.getAll((err, data) => {
