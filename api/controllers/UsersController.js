@@ -72,7 +72,14 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-  
+  User.remove(req.params.userId,(err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+            err.message || "Some error occurred while deleting user."
+      });
+    else res.send(data);
+  });
 };
 
 exports.deleteAll = (req, res) => {
