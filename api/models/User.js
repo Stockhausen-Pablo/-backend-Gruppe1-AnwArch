@@ -110,9 +110,9 @@ User.removeAll = result => {
   });
 };
 
-User.authenticate = (user,hash_pw, result) => {
+User.authenticate = (user, result) => {
   sql.query("SELECT * FROM users WHERE user_name = ? AND user_pass = ?",
-      [user.user_name,hash_pw],
+      [user.user_name,user.user_pass],
       (err, res) => {
     if (err) {
       console.log("error: ", err);

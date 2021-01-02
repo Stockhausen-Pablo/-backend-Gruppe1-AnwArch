@@ -10,7 +10,7 @@ exports.create = (req, res) => {
 
   const user = new User({ 
     name: req.body.user_name,
-    pass: req.body.user_pass,
+    pass: md5(req.body.user_pass),
     email: req.body.user_email,
     date: req.body.user_date,
     level: req.body.user_level,
@@ -37,12 +37,10 @@ exports.authenticate = (req, res) => {
 
   const user = new User({
     name: req.body.user_name,
-    pass: req.body.user_pass
+    pass: md5(req.body.user_pass)
   });
 
-  let hash_pw = md5(user.user_pass);
-
-  User.authenticate(user,hash_pw, (err, data) => {
+  User.authenticate(user,(err, data) => {
     if (err)
       res.status(500).send({
         message:
