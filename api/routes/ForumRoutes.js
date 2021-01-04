@@ -6,7 +6,7 @@ module.exports = (app)=> {
   const posts = require('../controllers/PostsController');
 
   //Users
-  app.post("/api/v1/users", users.create);
+  app.post("/api/v1/users/register", users.create);
 
   app.get("/api/v1/users", users.findAll);
 
