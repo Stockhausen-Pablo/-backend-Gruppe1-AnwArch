@@ -38,6 +38,8 @@ module.exports = (app)=> {
 
   app.get("/api/v1/topics", topics.findAll);
 
+  app.get("/api/v1/topics/all/:categoryID", topics.findAllbyID);
+
   app.get("/api/v1/topics/:topicId", topics.findOne);
 
   app.put("/api/v1/topics/:topicId", topics.update);

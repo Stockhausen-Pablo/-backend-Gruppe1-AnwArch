@@ -52,6 +52,21 @@ Topic.getAll = result => {
   });
 };
 
+Topic.getAllbyID = (cat_id, result) => {
+  sql.query("SELECT * FROM topics WHERE topic_cat=?",
+      [cat_id],
+      (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("topics: ", res);
+    result(null, res);
+  });
+};
+
 Topic.updateById = (id, topic, result) => {
   sql.query(
       "UPDATE topic SET topic_subject = ?, topic_date = ?, topic_cat = ?, topic_by = ? WHERE topic_id = ?",
