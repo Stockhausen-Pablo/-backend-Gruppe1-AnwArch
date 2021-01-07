@@ -62,7 +62,14 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  
+  User.findById(req.params.userId,(err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+            err.message || "Some error occurred while trying to find the user."
+      });
+    else res.send(data);
+  });
 };
 
 exports.update = (req, res) => {

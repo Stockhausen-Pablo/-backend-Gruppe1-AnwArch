@@ -32,13 +32,9 @@ User.findById = (userId, result) => {
       return;
     }
 
-    if (res.length) {
-      console.log("found user: ", res[0]);
-      result(null, res[0]);
-      return;
-    }
+    console.log("user", res[0]);
+    result(null, res[0]);
 
-    result({ kind: "not_found" }, null);
   });
 };
 
