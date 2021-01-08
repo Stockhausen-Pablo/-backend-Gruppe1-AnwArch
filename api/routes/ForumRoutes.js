@@ -34,7 +34,7 @@ module.exports = (app)=> {
   app.delete("/api/v1/categories", categories.deleteAll);
 
   //Topics
-  app.post("/api/v1/topics", topics.create);
+  app.post("/api/v1/topics/register", topics.create);
 
   app.get("/api/v1/topics", topics.findAll);
 
