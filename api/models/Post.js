@@ -39,6 +39,21 @@ Post.findById = (postId, result) => {
     });
 };
 
+Post.getAllbyID = (topic_id, result) => {
+    sql.query("SELECT * FROM posts WHERE post_topic=?",
+        [topic_id],
+        (err, res) => {
+            if (err) {
+                console.log("error: ", err);
+                result(null, err);
+                return;
+            }
+
+            console.log("posts: ", res);
+            result(null, res);
+        });
+};
+
 Post.getAll = result => {
     sql.query("SELECT * FROM posts", (err, res) => {
         if (err) {

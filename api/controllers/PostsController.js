@@ -35,6 +35,18 @@ exports.findAll = (req, res) => {
     });
 };
 
+exports.findAllbyID = (req, res) => {
+    Post.getAllbyID(req.params.topicID, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving posts."
+            });
+        else res.send(data);
+    });
+
+}
+
 exports.findOne = (req, res) => {
 
 };

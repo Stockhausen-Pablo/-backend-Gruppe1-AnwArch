@@ -53,6 +53,8 @@ module.exports = (app)=> {
 
   app.get("/api/v1/posts", posts.findAll);
 
+  app.get("/api/v1/posts/all/:topicID", posts.findAllbyID);
+
   app.get("/api/v1/posts/:postId", posts.findOne);
 
   app.put("/api/v1/posts/:postId", posts.update);
