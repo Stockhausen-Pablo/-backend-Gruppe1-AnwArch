@@ -49,7 +49,7 @@ module.exports = (app)=> {
   app.delete("/api/v1/topics", topics.deleteAll);
 
   //Posts
-  app.post("/api/v1/posts", posts.create);
+  app.post("/api/v1/posts/register", posts.create);
 
   app.get("/api/v1/posts", posts.findAll);
 
