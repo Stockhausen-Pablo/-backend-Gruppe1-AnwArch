@@ -12,6 +12,7 @@ exports.create = (req, res) => {
     date: req.body.topic_date,
     category: req.body.topic_cat,
     by: req.body.topic_by,
+    content: req.body.topic_content
   });
 
   Topic.create(topic, (err, data) => {

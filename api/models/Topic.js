@@ -6,6 +6,7 @@ const Topic = function(topic) {
   this.topic_date = topic.date;
   this.topic_cat = topic.category;
   this.topic_by = topic.by;
+  this.topic_content = topic.content;
 };
 
 Topic.create = (newTopic, result) => {
