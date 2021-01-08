@@ -82,7 +82,7 @@ ALTER TABLE posts ADD FOREIGN KEY(post_topic) REFERENCES topics.topics(topic_id)
 
 ALTER TABLE posts ADD FOREIGN KEY(post_by) REFERENCES users.users(user_id) ON DELETE RESTRICT ON UPDATE CASCADE;
 
-ALTER TABLE posts ADD COLUMN post_first BOOLEAN AFTER post_by;
+ALTER TABLE topics ADD COLUMN topic_content TEXT AFTER topic_by;
 
 #
 
