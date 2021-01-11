@@ -12,7 +12,8 @@ exports.create = (req, res) => {
     date: req.body.topic_date,
     category: req.body.topic_cat,
     by: req.body.topic_by,
-    content: req.body.topic_content
+    content: req.body.topic_content,
+    views: req.body.topic_views
   });
 
   Topic.create(topic, (err, data) => {
@@ -42,6 +43,18 @@ exports.findAllbyID = (req, res) => {
       res.status(500).send({
         message:
             err.message || "Some error occurred while retrieving topics."
+      });
+    else res.send(data);
+  });
+
+}
+
+exports.increment = (req, res) => {
+  Topic.increment(req.params.topicId, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+            err.message || "Some error occurred while increasing topic views."
       });
     else res.send(data);
   });

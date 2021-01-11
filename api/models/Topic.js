@@ -7,6 +7,7 @@ const Topic = function(topic) {
   this.topic_cat = topic.category;
   this.topic_by = topic.by;
   this.topic_content = topic.content;
+  this.topic_views = topic.views;
 };
 
 Topic.create = (newTopic, result) => {
@@ -66,6 +67,28 @@ Topic.getAllbyID = (cat_id, result) => {
     console.log("topics: ", res);
     result(null, res);
   });
+};
+
+Topic.increment = (topic_id, result) => {
+  sql.query(
+      "UPDATE topics SET topic_views = topic_views + 1 WHERE topic_id = ?",
+      [topic_id],
+      (err, res) => {
+        if (err) {
+          console.log("error: ", err);
+          result(null, err);
+          return;
+        }
+
+        if (res.affectedRows == 0) {
+          result({ kind: "not_found" }, null);
+          return;
+        }
+
+        console.log("updated topic views: ", { id: topic_id});
+        result(null, { id: topic_id});
+      }
+  );
 };
 
 Topic.updateById = (id, topic, result) => {

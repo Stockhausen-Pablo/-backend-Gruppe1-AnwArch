@@ -86,10 +86,16 @@ ALTER TABLE topics ADD COLUMN topic_content TEXT AFTER topic_by;
 
 #
 
+USE users;
+
 UPDATE users SET user_pass = MD5(user_pass)
 
 ALTER Table users ADD COLUMN user_role VARCHAR(15) AFTER user_level;
 ALTER Table users ADD COLUMN user_permission VARCHAR(15) AFTER user_role;
+
+USE topics;
+
+ALTER TABLE topics ADD COLUMN topic_views INT(8) AFTER topic_content;
 
 # BACKEND STARTEN
 

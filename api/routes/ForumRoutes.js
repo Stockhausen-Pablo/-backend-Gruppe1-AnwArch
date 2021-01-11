@@ -44,6 +44,8 @@ module.exports = (app)=> {
 
   app.put("/api/v1/topics/:topicId", topics.update);
 
+  app.put("/api/v1/topics/increment/:topicId", topics.increment);
+
   app.delete("/api/v1/topics/:topicId", topics.delete);
 
   app.delete("/api/v1/topics", topics.deleteAll);
