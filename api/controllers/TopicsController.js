@@ -62,7 +62,14 @@ exports.increment = (req, res) => {
 }
 
 exports.findOne = (req, res) => {
-
+  Topic.findById(req.params.topicId, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+            err.message || "Some error occurred while trying to find topic."
+      });
+    else res.send(data);
+  });
 };
 
 exports.update = (req, res) => {

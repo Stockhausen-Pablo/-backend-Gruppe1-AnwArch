@@ -24,7 +24,7 @@ Topic.create = (newTopic, result) => {
 };
 
 Topic.findById = (topicId, result) => {
-  sql.query(`SELECT * FROM topics WHERE topics_id = ${topicId}`, (err, res) => {
+  sql.query(`SELECT * FROM topics WHERE topic_id = ${topicId}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
