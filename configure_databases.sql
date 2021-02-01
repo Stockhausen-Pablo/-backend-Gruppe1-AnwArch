@@ -1,28 +1,7 @@
-# backend-Gruppe1-AnwArch
-
-Dieses Projekt enstand im Rahmen des Moduls: "Entwicklung von Webanwendungen und Architekturen".
-
-
-# MYSQL
-
-Zum Starten wird MYSQL benötigt. Das Default-Developer-Paket eignet sich sehr gut.
-
-Konfiguration:
-local: TCP/IP
-port : 3306
-rootu: root
-rootpw : archanw
-
-Nach der Installation müssen folgende Querys ausgelöst werden:
-
-#
-
 CREATE DATABASE users;
 CREATE DATABASE categories;
 CREATE DATABASE topics;
 CREATE DATABASE posts;
-
-#
 
 USE users;
 CREATE TABLE users (
@@ -65,8 +44,6 @@ post_by     INT(8) NOT NULL,
 PRIMARY KEY (post_id)
 );
 
-#
-
 USE topics;
 ALTER TABLE topics ADD FOREIGN KEY(topic_cat) REFERENCES categories.categories(cat_id) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE topics ADD FOREIGN KEY(topic_by) REFERENCES users.users(user_id) ON DELETE RESTRICT ON UPDATE CASCADE;
@@ -85,16 +62,3 @@ ALTER Table users ADD COLUMN user_permission VARCHAR(15) AFTER user_role;
 
 USE topics;
 ALTER TABLE topics ADD COLUMN topic_views INT(8) AFTER topic_content;
-
-# BACKEND STARTEN
-
-Folgende Konfiguration sollte eingerichtet werden, um das backend zu starten oder zu debuggen:
-
-![alt text](https://i.imgur.com/a9fLbkW.jpg)
-
-
-Manueller Start:
-
-SET NODE_ENV=development
-
-node server.js
