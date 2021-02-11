@@ -84,7 +84,7 @@
         }
       },
       "delete": {
-        "summary": "Delete All users",
+        "summary": "Delete All users [NOT IMPLEMENTED]",
         "tags": [
           "Users"
         ],
@@ -137,7 +137,7 @@
         }
       },
       "put": {
-        "summary": "Update user with give ID",
+        "summary": "Update user with give ID [NOT IMPLEMENTED]",
         "tags": [
           "Users"
         ],
@@ -204,7 +204,7 @@
         }
       },
       "delete": {
-        "summary": "Delete All categories",
+        "summary": "Delete All categories [NOT IMPLEMENTED]",
         "tags": [
           "Categories"
         ],
@@ -232,7 +232,7 @@
         "tags": [
           "Categories"
         ],
-        "summary": "Get category with given ID",
+        "summary": "Get category with given ID [NOT IMPLEMENTED]",
         "responses": {
           "200": {
             "description": "Category is found",
@@ -243,7 +243,7 @@
         }
       },
       "delete": {
-        "summary": "Delete category with given ID",
+        "summary": "Delete category with given ID [NOT IMPLEMENTED]",
         "tags": [
           "Categories"
         ],
@@ -257,7 +257,7 @@
         }
       },
       "put": {
-        "summary": "Update category with give ID",
+        "summary": "Update category with give ID [NOT IMPLEMENTED]",
         "tags": [
           "Categories"
         ],
@@ -324,7 +324,7 @@
         }
       },
       "delete": {
-        "summary": "Delete All topics",
+        "summary": "Delete All topics [NOT IMPLEMENTED]",
         "tags": [
           "Topics"
         ],
@@ -344,7 +344,7 @@
           "name": "topicId",
           "in": "path",
           "required": true,
-          "description": "ID of topic that we want to find",
+          "description": "ID of topic that we want to find [NOT IMPLEMENTED]",
           "type": "string"
         }
       ],
@@ -363,7 +363,7 @@
         }
       },
       "delete": {
-        "summary": "Delete topic with given ID",
+        "summary": "Delete topic with given ID [NOT IMPLEMENTED]",
         "tags": [
           "Topics"
         ],
@@ -446,7 +446,7 @@
         }
       },
       "delete": {
-        "summary": "Delete All posts",
+        "summary": "Delete All posts [NOT IMPLEMENTED]",
         "tags": [
           "Posts"
         ],
@@ -491,7 +491,7 @@
           "name": "postId",
           "in": "path",
           "required": true,
-          "description": "ID of post that we want to find",
+          "description": "ID of post that we want to find [NOT IMPLEMENTED]",
           "type": "string"
         }
       ],
@@ -510,7 +510,7 @@
         }
       },
       "delete": {
-        "summary": "Delete post with given ID",
+        "summary": "Delete post with given ID [NOT IMPLEMENTED]",
         "tags": [
           "Posts"
         ],
