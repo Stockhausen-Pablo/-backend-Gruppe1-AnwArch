@@ -62,3 +62,13 @@ ALTER Table users ADD COLUMN user_permission VARCHAR(15) AFTER user_role;
 
 USE topics;
 ALTER TABLE topics ADD COLUMN topic_views INT(8) AFTER topic_content;
+
+USE users;
+INSERT INTO users VALUES ('1','root', '63a9f0ea7bb98050796b649e85481845', 'root@root.de', '2020-12-30 21:17:47', '1', 'user', 'user');
+
+USE categories;
+INSERT INTO categories VALUES('1', 'Computer', 'Everything related to Computers');
+INSERT INTO categories VALUES('2', 'Keyboards', 'Everything related to Keyboards');
+INSERT INTO categories VALUES('3', 'Mices', 'Everything related to Mices');
+
+
